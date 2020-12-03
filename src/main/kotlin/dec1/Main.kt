@@ -1,20 +1,23 @@
 package dec1
 
-private fun findValue(arr: List<Int>): Int {
-        val mappedData = arr.map { it to it }.toMap()
+private fun findValuesThatSum(arr: List<Int>, target: Int, valueCount: Int = 2): List<Int> {
+    val match = arr.toCombinations(valueCount)
+        .find { it.sum() == target } ?: emptyList()
 
-        val value1 = arr.find { mappedData.containsKey(2020 - it) } ?: return -1
+    return match
+}
 
-        println("value1: $value1")
+fun List<Int>.multiplyList(): Int {
+    return this.reduce { acc, i -> acc * i }
+}
 
-        val value2 = 2020 - value1
+fun main() {
+    println("------------ PART 1 ------------")
+    val sumOfTwo = findValuesThatSum(input, 2020).multiplyList()
+    println("result: $sumOfTwo")
 
-        println("value2: $value2")
 
-        return value1 * value2
-    }
-
-    fun main() {
-        val result = findValue(Data.input)
-        println("result: $result")
-    }
+    println("------------ PART 2 ------------")
+    val sumOfThree = findValuesThatSum(input, 2020, 3).multiplyList()
+    println("result: $sumOfThree")
+}
