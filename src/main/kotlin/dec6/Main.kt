@@ -49,7 +49,7 @@ fun main() {
     val result = getTotalCharacterCountForInput(input)
     println("result: $result")
 
-    println("------------ PART 1 ------------")
+    println("------------ PART 2 ------------")
     val result2 = getCharacterCountInAllGroups(input)
     println("result: $result2")
 }
