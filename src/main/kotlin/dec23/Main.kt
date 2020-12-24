@@ -113,6 +113,7 @@ fun getResultPart2(cupList: CupList<Int>): Long {
 }
 
 fun main() {
+    println("------------ PART 1 ------------")
     val initialGameState = CupGameState(input)
 
     val finalState = (1..100).fold(initialGameState) { acc, i ->
@@ -123,6 +124,7 @@ fun main() {
 
     println("result: $result")
 
+    println("------------ PART 2 ------------")
     val updatedInput = input + (input.max()!!+1..1_000_000)
     val updatedInitialState = CupGameState(updatedInput)
 
